@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: dev # 开发环境
+  #    active: test # 测试环境
+  #    active: info # 开发环境
+
+  application:
+    name: mall-gateway
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # 注册中心
+      config:
+        server-addr: localhost:8848 # 配置中心
+        file-extension: yaml # 这里指定的文件格式需要和nacos上新建的配置文件后缀相同，否则读不到
+        namespace: be87fb66-a36f-49f3-8de6-a8be36a43618
+
+###默认会读取 下面这个规则生成的文件名的的配置文件 服务名-环境.yaml
+#  ${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+

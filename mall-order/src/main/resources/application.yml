@@ -1,0 +1,35 @@
+server:
+  port: 10005
+
+spring:
+  application:
+    name: mall-order
+
+  ##nacos 配置
+  cloud:
+    nacos:
+      discovery: #Nacos注册中心地址
+        server-addr: localhost:8848
+
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/mall_oms?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+logging:
+  level:
+    com.xp.mall: debug
+
